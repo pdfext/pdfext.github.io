@@ -22,13 +22,55 @@
   height:30px;
   line-height:10px;
   }
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
 </style>
+
+<div id='legend' style='display:none;'>
+<small>
+<strong>Code couleur utilisé.</strong>
+<br>
+<kbd>En cliquant sur une commune colorisé, on peut visualiser sess données dans une fenêtre pop-up.</kbd>
+<br>
+<b style="color:#04ff00">Vert</b> : commune faisant entièrement partie d'un PNR. 
+<br>
+<b style="color:#c3fa04">Jaune</b> : commune faisant patièlement partie d'un PNR. 
+<br>
+<b style="color:#322323">Noir</b> : commune centre d'une unité urbaine de plus de 100 000 habitants. 
+<br>
+<b style="color:#414040">Gris</b> : commune de banlieue d'une unité urbaine de plus de 100 000 habitants. 
+<br>
+<b style="color:#50007c">Violet foncé</b> : commune de plus de 10 000 habitants faisant partie d'une unité urbaine. 
+<br>
+<b style="color:#5d267c">Violet</b> : commune de moins de 10 000 habitants faisant partie d'une unité urbaine autour d'une commune center de plus de 10 000 habitants.
+<br>
+<b style="color:#0e00fb">Bleu foncé</b> : ville isolée de plus de 10 000 habitants
+<br>
+<b style="color:#8c86fa">Bleu pâle</b> : ville isolée de moins de 10 000 habitants
+<br>
+<b style="color:#faa5f7">Rose</b> : commune centre d'une unité urbaine de moins de 10 000 habitants.   
+<br>
+<b style="color:#f6cdfd">Rose clair</b> : commune de banlieue d'une unité urbaine de moins de 10 000 habitants.  
+<br>
+</kbd>
+Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
+</small>
+</div>
+
 <div id='map'></div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoibGdlcmZlcm5hbmQiLCJhIjoiY2loMG1vMmZoMDBpY2tya3Jxem9pMGJ6MSJ9.omOSkGkwzbPZTExWPMgGLg';
 var map = L.mapbox.map('map', 'lgerfernand.76f6edb7')
     .setView([48.250, 2.384], 8);
-
+     map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 var pdfLayer = L.mapbox.featureLayer()
     .loadURL('../data/France_fixpdf712.json')
     .on('click', handleClick)
