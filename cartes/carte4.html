@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Paysages de France : affichage des attributs</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-pip/v0.0.2/leaflet-pip.js'></script>
+
+<style>
+.leaflet-popup { width:240px; }
+.leaflet-popup button {
+  float:right;
+  height:30px;
+  line-height:10px;
+  }
+</style>
+<div id='map'></div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicGVjYmFybmVzMiIsImEiOiJjaWc2YjB5bnUwaGRrdjBtNmcxOGFiM2NiIn0.6YAbG486IHQpojnS1_PbPA';
+var map = L.mapbox.map('map', 'pecbarnes2.6acb86c3')
+    .setView([48.250, 2.384], 7);
+
+var pdfLayer = L.mapbox.featureLayer()
+    .loadURL('France_fixpdf79.json')
+    .on('click', handleClick)
+    .on('ready', resetStyles)
+    .addTo(map);
+
+var layers = [
+    { name: 'Pdf', layer: pdfLayer }
+];
+
+// This is the default style of layers when the user isn't interacting
+// with the map
+var quiet = {
+    fillColor: '#222',
+    fillOpacity: 0.2,
+    opacity: 0.4,
+    weight: 1
+};
+
+// The style of a layer that's been filtered to but not the specific
+// shape the user selected
+var medium = {
+    fillColor: '#255',
+    fillOpacity: 0.4,
+    opacity: 1,
+    weight: 1
+};
+
+// The specific shape selected
+var loud = {
+    fillColor: '#2ff',
+    fillOpacity: 0.4,
+    opacity: 0.4,
+    weight: 1
+};
+
+// When the user resets the map by closing the popup, reset styles
+function resetStyles() {
+    for (var i = 0; i < layers.length; i++) {
+        layers[i].layer.setStyle(quiet);
+    }
+}
+
+map.on('popupclose', function() {
+    resetStyles();
+});
+
+function handleClick(e) {
+    var html = '';
+    // look through each layer in order and see if the clicked point,
+    // e.latlng, overlaps with one of the shapes in it.
+    for (var i = 0; i < layers.length; i++) {
+        var match = leafletPip.pointInLayer(
+            // the clicked point
+            e.latlng,
+            // this layer
+            layers[i].layer,
+            // whether to stop at first match
+            true);
+        // if there's overlap, add some content to the popup: the layer name
+        // and a table of attributes
+        if (match.length) {
+            html += '<strong>' + layers[i].name +
+                '<button onclick="highlightMatch(this)" data-layer="' + i +
+                '" data-latlng="' +
+                [e.latlng.lat, e.latlng.lng] +
+                '">highlight</button></strong>';
+            html += propertyTable(match[0].feature.properties);
+        }
+    }
+    if (html) {
+        map.openPopup(html, e.latlng);
+    }
+}
+
+// To highlight a layer, we make all other layers quiet and then re-run
+// the point in polygon match on that layer
+function highlightMatch(that) {
+    var layer = layers[that.dataset.layer].layer,
+        latlng = L.latLng(that.dataset.latlng.split(','));
+
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].layer == layer) {
+            var match = leafletPip.pointInLayer(latlng, layers[i].layer, true);
+            layers[i].layer.eachLayer(function(shape) {
+                if (match[0] == shape) {
+                    // the one shape that is matched becomes loud and clear
+                    shape.setStyle(loud);
+                } else {
+                    shape.setStyle(medium);
+                }
+            });
+        } else {
+            layers[i].layer.setStyle(quiet);
+        }
+    }
+}
+
+// create a simple table from the properties in a feature, like the
+// name of a state or district
+function propertyTable(o) {
+    var t = '<table>';
+    for (var k in o) {
+        t += '<tr><th>' + k + '</th><td>' + o[k] + '</td></tr>';
+    }
+    t += '</table>';
+    return t;
+}
+</script>
+
+</body>
+</html>
+
+
