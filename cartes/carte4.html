@@ -30,7 +30,7 @@ var map = L.mapbox.map('map', 'lgerfernand.76f6edb7')
     .setView([48.250, 2.384], 8);
 
 var pdfLayer = L.mapbox.featureLayer()
-    .loadURL('France_fixpdf711.json')
+    .loadURL('../data/France_fixpdf711.json')
     .on('click', handleClick)
     .on('ready', resetStyles)
     .addTo(map);
