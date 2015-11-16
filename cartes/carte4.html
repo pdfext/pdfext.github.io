@@ -175,19 +175,48 @@ function propertyTable(o) {
     var t = '<table>';
     var pnr=0;
     for (var k in o) {
-	if ( k == "PDF_PNR_S" ) {
-		if ( ( o[k] == "1" ) || ( o[k] == "2" ) ) {
-			pnr=1;
+	if (( k != "PDF_PN_S" ) && ( k != "PDF_PN_N" ) && ( k != "PDF_POP_T12" ) && ( k != "PDF_POP_12" ) && ( k != "PDF_UU_PAS" ) ) {
+		if ( k == "PDF_PNR_S" ) {
+			if ( ( o[k] == "1" ) || ( o[k] == "2" ) ) {
+				pnr=1;
+			} else {
+				pnr=0;
+			}	
 		} else {
-			pnr=0;
-		}	
-	}
-	if ( k == "PDF_PNR_N" ) {
-		if (pnr==1) {
-			t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
+			if ( k == "PDF_PNR_N" ) {
+				if (pnr==1) {
+					t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
+					pnr=0;
+				}
+			}  else {
+				if ( k == "PDF_UU_105" ) {	
+					if ( o[k] == "1" ) {
+				PDF_UU_105	PDF_UU_104	PDF_UU_POP12
+         				t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Commune de plus de 10 000 habitants</td></tr>';
+					} else {
+						if ( o[k] == "2" ) {
+							t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Commune de moins de 10 000 habitants</td></tr>';
+						}
+				}
+				if ( k == "PDF_UU_104" ) {	
+					if ( o[k] == "1" ) {
+         					t += '<tr><th>Unité urbaine de plus de 10 000 habitants</th><td>Commune de plus de 10 000 habitants</td></tr>';
+					} else {
+						if ( o[k] == "2" ) {
+							t += '<tr><th>Unité urbaine de plus de 10 000 habitants</th><td>Commune de moins de 10 000 habitants</td></tr>';
+						} else {
+							if ( o[k] == "6" ) {	
+								t += '<tr><th>Ville isolée</th><td>Commune de plus de 10 000 habitants</td></tr>';
+							} else {
+								if ( o[k] == "7" ) {	
+									t += '<tr><th>Ville isolée</th><td>Commune de moins de 10 000 habitants</td></tr>';
+								}
+							}
+						}
+					}
+				}
+			}
 		}
-    	} else {
-        	t += '<tr><th>' + k + '</th><td>' + o[k] + '</td></tr>';
 	}
     }
     t += '</table>';
