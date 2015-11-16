@@ -173,11 +173,12 @@ function highlightMatch(that) {
 // name of a state or district
 function propertyTable(o) {
     var t = '<table>';
-    if (k =='PDF_PNR_S' && ( o[k] == '1' || o[k] == '2')) {
-	t += '<tr><th>Parc Naturel Régional</th><td>' + o[PDF_PNR_N] + '</td></tr>';
+    if (k =='PDF_PNR_S') {
+	if ( o[k] == '1' ) || ( o[k] == '2' ) {
+		t += '<tr><th>Parc Naturel Régional</th><td>' + o[PDF_PNR_N] + '</td></tr>';
+   	 }
     }
     for (var k in o) {
-	if (k =='PDF_PNR_S' && ( o[k] == '1' || o[k] == '2')
         t += '<tr><th>' + k + '</th><td>' + o[k] + '</td></tr>';
     }
     t += '</table>';
