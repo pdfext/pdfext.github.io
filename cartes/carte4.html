@@ -173,9 +173,19 @@ function highlightMatch(that) {
 // name of a state or district
 function propertyTable(o) {
     var t = '<table>';
+    var pnr=0;
     for (var k in o) {
 	if ( k == "PDF_PNR_S" ) {
-		t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
+		if ( ( o[k] == "1" ) || ( o[k] == "2" ) ) {
+			pnr=1;
+		} else {
+			pnr=0;
+		}	
+	}
+	if ( k == "PDF_PNR_N" ) {
+		if (pnr==1) {
+			t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
+		}
     	} else {
         	t += '<tr><th>' + k + '</th><td>' + o[k] + '</td></tr>';
 	}
