@@ -174,9 +174,9 @@ function highlightMatch(that) {
 function propertyTable(o) {
     var t = '<table>';
     for (var k in o) {
-	if (k =='PDF_PNR_S') {
+	if ( k == 'PDF_PNR_S' ) {
 		t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
-    	} else 
+    	} else {
         	t += '<tr><th>' + k + '</th><td>' + o[k] + '</td></tr>';
 	}
     }
