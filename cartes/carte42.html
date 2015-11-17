@@ -210,11 +210,11 @@ function propertyTable(o) {
         if (k == "PDF_UU_105") {
             uu = 1;
             if (o[k] == "1") {
-                t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville de plus de 10 000 habitants</td></tr>';
+                t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville centre</td></tr>';
                 continue;
             }
             if (o[k] == "2") {
-                t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville de moins de 10 000 habitants</td></tr>';
+                t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville de banlieue</td></tr>';
                 continue;
             }
         }
