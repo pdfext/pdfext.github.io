@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Paysages de France : affichage des attributs</title>
+<title>Paysages de France : affichage des attributs des communes</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
@@ -48,17 +48,17 @@
 <br>
 <b style="color:#414040">Gris</b> : commune de banlieue d'une unité urbaine de plus de 100 000 habitants. 
 <br>
-<b style="color:#50007c">Violet foncé</b> : commune de plus de 10 000 habitants faisant partie d'une unité urbaine. 
+<b style="color:#6e266b">Violet foncé</b> : commune de plus de 10 000 habitants faisant partie d'une unité urbaine.
 <br>
-<b style="color:#5d267c">Violet</b> : commune de moins de 10 000 habitants faisant partie d'une unité urbaine autour d'une commune center de plus de 10 000 habitants.
+<b style="color:#9d53c7">Violet</b> : commune de moins de 10 000 habitants faisant partie d'une unité urbaine autour d'une commune center de plus de 10 000 habitants.
 <br>
-<b style="color:#0e00fb">Bleu foncé</b> : ville isolée de plus de 10 000 habitants
+<b style="color:#2d268c">Bleu foncé</b> : ville isolée de plus de 10 000 habitants
 <br>
-<b style="color:#8c86fa">Bleu pâle</b> : ville isolée de moins de 10 000 habitants
+<b style="color:#cac8fd">Bleu pâle</b> : ville isolée de moins de 10 000 habitants
 <br>
-<b style="color:#faa5f7">Rose</b> : commune centre d'une unité urbaine de moins de 10 000 habitants.   
+<b style="color:#d6add4">Rose</b> : commune centre d'une unité urbaine de moins de 10 000 habitants.
 <br>
-<b style="color:#f6cdfd">Rose clair</b> : commune de banlieue d'une unité urbaine de moins de 10 000 habitants.  
+<b style="color:#f6cdfd">Rose pâle</b> : commune de banlieue d'une unité urbaine de moins de 10 000 habitants.
 <br>
 </kbd>
 Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
@@ -204,16 +204,17 @@ function propertyTable(o) {
             continue;
         }
         if (k == "PDF_POP_M12") {
-            t += '<tr><th>Population Municipale</th><td>' + o[k] + '</td></tr>';
+            t += '<tr><th>Population 2012</th><td>' + o[k] + '</td></tr>';
             continue;
         }
         if (k == "PDF_UU_105") {
-            uu = 1;
             if (o[k] == "1") {
+                uu = 1;
                 t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville centre</td></tr>';
                 continue;
             }
             if (o[k] == "2") {
+                uu = 1;
                 t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville de banlieue</td></tr>';
                 continue;
             }
@@ -242,7 +243,7 @@ function propertyTable(o) {
         }
         if (k == "PDF_UU_POP12") {
             if (uu == 1) {
-                t += '<tr><th>Population unité urbaine</th><td>' + o[k] + '</td></tr>';
+                t += '<tr><th>Population unité urbaine 2012</th><td>' + o[k] + '</td></tr>';
             }
             uu = 0;
         }
