@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Effets de l'article 2 du projet de décret 'Macron'. Extension possible de
+  la publicité aux communes des Parcs Naturels Régionaux!</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+<!-- Set the display of this container to none so we can
+     add it programmatically to `legendControl` -->
+<div id='legend' style='display:none;'>
+<small>
+<strong>Effets de l'article 2 du projet de décret 'Macron' sur les Parcs Naturels Régionaux : extension possible des panneaux scellés au sol
+  aux communes des Parcs Naturels Régionaux!</strong>
+<kbd>
+<br>
+<b style="color:#006a15">Vert</b> : communes qui font partie entièrement d'un PNR.
+<br>
+<b style="color:#00911d">Vert clair</b> : communes qui font partie partiellement d'un PNR.
+<br>
+<b style="color:#1900ff">Bleu</b> : unités urbaines constuites autour de villes de plus de 10 000 habitants. Les panneaux
+  scellés au sol seraient autorisés partout dans ces zones.
+<br>
+<b style="color:#ff0000">Rouge</b> : communes des PNR où les panneaux scellés au sol seraient possiblement autorisés.
+<br>
+</kbd>
+Source: <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a>
+</small>
+</div>
+<div id='map' class='dark'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoieWNvcmV2ZXJ0IiwiYSI6ImNpZ3kxeXp4NjAwZDdrcWx5ajFlc2VxZ2wifQ.cGGqUceKM3RgABLcLDnV3w';
+var map = L.mapbox.map('map', 'ycorevert.91eed135')
+    .setView([48.250, 2.384], 7);
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+</script>
+</body>
+</html>
+
+
