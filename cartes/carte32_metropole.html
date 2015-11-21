@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants.</title>
+<title>Unités urbaines de plus de 100 000 habitants.</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
@@ -29,20 +29,22 @@
 
 <!-- Set the display of this container to none so we can
      add it programmatically to `legendControl` -->
-<div id='legend' style='display:none;'>
+div id='legend' style='display:none;'>
 <small>
-<strong>Communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants.</strong>
-<br>
-<kbd>Cette carte visualise l'emprise de la dérogation réglementaire qui date des années 80,
- sur les communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants,
- et que les travaux du Grenelle avait réussi, mais uniquement dans un premier temps, à supprimer.</kbd>
-<br>
-<b style="color:#1900ff">Bleu</b> : communes de 10 000 habitants et plus. 
-<br>
-<b style="color:#ff0000">Rouge</b> : communes de moins 10 000 habitants.
-<br>
-</kbd>
-Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
+  <strong>Unités urbaines de plus de 100 000 habitants.</strong>
+  <br>
+  <kbd>Cette carte visualise l'emprise de la dérogation réglementaire sur les unités urbaines de 100 000 habitants,
+    qui avait étendu aux communes de moins de 10 000 habitants les régles qui s'appliquaient jusqu'alors aux seules
+    villes de plus de 10 000 habitants. Cette dérogation date des années 1980. Les travaux du Grenelle avait réussi,
+    mais uniquement dans un premier temps, à la faire annuler.
+  </kbd>
+  <br>
+  <b style="color:#1900ff">Bleu</b> : communes de 10 000 habitants et plus.
+  <br>
+  <b style="color:#ff0000">Rouge</b> : communes de moins 10 000 habitants.
+  <br>
+  </kbd>
+  Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
 </small>
 </div>
 <div id='map' class='dark'></div>
