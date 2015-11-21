@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Effet de l'article 2 du projet de décret 'Macron': extension de la publicité! Saccage du paysage! </title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+
+<!-- Set the display of this container to none so we can
+     add it programmatically to `legendControl` -->
+<div id='legend' style='display:none;'>
+<small>
+<strong>Effets du projet de décret 'Macron' sur les banlieues des villes de 10 000 habitants (zones rouges).</strong>
+<kbd>
+<br>
+<b style="color:#1900ff">Bleu</b> : communes où les panneaux scellés au sol sont actuellement autorisés.
+<br>
+<b style="color:#ff0000">Rouge</b> : communes où les panneaux scellés au sol seraient nouvellement autorisés.
+<br>
+</kbd>
+Source: <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a>
+</small>
+</div>
+<div id='map' class='dark'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoidG9tZG9tIiwiYSI6ImNpaDg5MTMxZjAwM3J2NGtsNXdiYzU2bWkifQ.izW6xjZoen1t1cESdibcaA';
+var map = L.mapbox.map('map', 'tomdom.8612c3f2')
+    .setView([-61.1499,10.6822,6], 6);
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+</script>
+</body>
+</html>
+
+
