@@ -79,7 +79,7 @@ var map = L.mapbox.map('map', 'lgerfernand.76f6edb7')
         .setView([-16.920,52.921], 6);
      map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 var pdfLayer = L.mapbox.featureLayer()
-    .loadURL('../data/v2_9.json')
+    .loadURL('../data/v2_9l.json')
     .on('click', handleClick)
     .on('ready', resetStyles)
     .addTo(map);
