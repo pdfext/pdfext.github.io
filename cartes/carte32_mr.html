@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Effet de l'article 2 du projet de décret 'Macron': extension de la publicité! Saccage du paysage! </title>
+<title>Communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants.</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
@@ -31,26 +31,32 @@
      add it programmatically to `legendControl` -->
 <div id='legend' style='display:none;'>
 <small>
-<strong>Effets du projet de décret 'Macron' sur les banlieues des villes de 10 000 habitants (zones rouges).</strong>
-<kbd>
+<strong>Communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants.</strong>
 <br>
-<b style="color:#1900ff">Bleu</b> : communes où les panneaux scellés au sol sont actuellement autorisés.
+<kbd>Cette carte visualise l'emprise de la dérogation réglementaire qui date des années 80,
+ sur les communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants,
+ et que les travaux du Grenelle avait réussi, mais uniquement dans un premier temps, à supprimer.</kbd>
 <br>
-<b style="color:#ff0000">Rouge</b> : communes où les panneaux scellés au sol seraient nouvellement autorisés.
+<b style="color:#1900ff">Bleu</b> : communes de 10 000 habitants et plus. 
+<br>
+<b style="color:#ff0000">Rouge</b> : communes de moins 10 000 habitants.
 <br>
 </kbd>
-Source: <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a>
+Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
 </small>
 </div>
 <div id='map' class='dark'></div>
 
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoidG9tZG9tIiwiYSI6ImNpaDg5MTMxZjAwM3J2NGtsNXdiYzU2bWkifQ.izW6xjZoen1t1cESdibcaA';
-var map = L.mapbox.map('map', 'tomdom.8612c3f2')
+L.mapbox.accessToken = 'pk.eyJ1IjoicG5vdmVtYmVyIiwiYSI6ImNpZ3dxOTk3YTAwOXF2ZmtyNnM5djdsZTgifQ.klF5WEENWX_LBg9fqg-90A';
+var map = L.mapbox.map('map', 'pnovember.de6bcd36')
   .setView([47.4170,-17.1618,6], 6);
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 </script>
 </body>
 </html>
+
+
+ 
 
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants.</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+
+<!-- Set the display of this container to none so we can
+     add it programmatically to `legendControl` -->
+<div id='legend' style='display:none;'>
+<small>
+<strong>Communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants.</strong>
+<br>
+<kbd>Cette carte visualise l'emprise de la dérogation réglementaire qui date des années 80,
+ sur les communes de moins de 10 000 habitants faisant partie d'une unité urbaine de plus de 100 000 habitants,
+ et que les travaux du Grenelle avait réussi, mais uniquement dans un premier temps, à supprimer.</kbd>
+<br>
+<b style="color:#1900ff">Bleu</b> : communes de 10 000 habitants et plus. 
+<br>
+<b style="color:#ff0000">Rouge</b> : communes de moins 10 000 habitants.
+<br>
+</kbd>
+Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
+</small>
+</div>
+<div id='map' class='dark'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicG5vdmVtYmVyIiwiYSI6ImNpZ3dxOTk3YTAwOXF2ZmtyNnM5djdsZTgifQ.klF5WEENWX_LBg9fqg-90A';
+var map = L.mapbox.map('map', 'pnovember.de6bcd36')
+        .setView([-59.2603,9.9472,6], 6);
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+</script>
+</body>
+</html>
+
+
+ 
+
+
