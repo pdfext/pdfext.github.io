@@ -154,23 +154,11 @@ function highlightMatch(that) {
     }
 }
 
-  // return nom unité urbaine
-  function the_title(o) {
-    var ret='';
-    for (var k in o) {
-      if (k == "PDF_UU_NOM") {
-        ret += o[k];
-        break;
-      }
-    }
-    return ret;
-  }
-
 // create a simple table from the properties in a feature, like the
 // name of a state or district
 function propertyTable(o) {
-    var nom_commune='';
-    var nom_uu='';
+    var nom_commune=' ';
+    var nom_uu=' ';
     var population_commune = 0;
     var population_uu = 0;
     var surface_commune = 0;
@@ -201,11 +189,13 @@ function propertyTable(o) {
         surface_commune = o[k];continue;
       }
     }
-    var accroissement=(surface_uu/surface_commune)*100;
+    //var accroissement=(surface_uu/surface_commune)*100;
     var t = '<table>';
-    t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
-    t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
-    t += '<tr><th>Accroissement de la surface </th><td>' + accroissement + ' %</td></tr>';
+    t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
+
+    //t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
+    //t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
+    //t += '<tr><th>Accroissement de la surface </th><td>' + accroissement + ' %</td></tr>';
     t += '</table>';
     //t += 'Actuellement les panneaux scellés au sol de 12 m ne sont autorisés que dans la seule commune ' +
     //        'de '+nom_commune+' (en bleu). Si le décret passait, ils le seraient également dans toute ' +
