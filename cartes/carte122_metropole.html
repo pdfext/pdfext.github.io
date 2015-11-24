@@ -65,7 +65,7 @@ var pdfLayer = L.mapbox.featureLayer()
     .addTo(map);
 
 var layers = [
-    { name: 'Données sur l\'unité urbaine', layer: pdfLayer }
+    { name: 'Données comparées unité urbaine/commune', layer: pdfLayer }
 ];
 
 // This is the default style of layers when the user isn't interacting
@@ -189,7 +189,7 @@ function propertyTable(o) {
   }
   var accroissement = Math.round((surface_uu/surface_commune)*100);
   var t = '<table>';
-  t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
+  //t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
   t += '<tr><th></th><td></td></tr>';
   t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
   t += '<tr><th></th><td></td></tr>';
