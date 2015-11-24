@@ -59,13 +59,13 @@ var map = L.mapbox.map('map', 'tomdom.8612c3f2')
      map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 var pdfLayer = L.mapbox.featureLayer()
-    .loadURL('../data/v2_9l.json')
+    .loadURL('../data/v2_9LL.json')
     .on('click', handleClick)
     .on('ready', resetStyles)
     .addTo(map);
 
 var layers = [
-    { name: 'Données sur la commune', layer: pdfLayer }
+    { name: 'Données sur l\'unité urbaine', layer: pdfLayer }
 ];
 
 // This is the default style of layers when the user isn't interacting
@@ -194,8 +194,11 @@ function propertyTable(o) {
   var accroissement = Math.round((surface_uu/surface_commune)*100);
   var t = '<table>';
   t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
   t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
   t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
   t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur l\'unité urbaine</th><td>' + accroissement + ' %</td></tr>';
   t += '</table>';
   t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans la seule commune ' +
