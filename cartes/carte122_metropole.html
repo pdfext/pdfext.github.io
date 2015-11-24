@@ -159,116 +159,49 @@ function highlightMatch(that) {
 // create a simple table from the properties in a feature, like the
 // name of a state or district
 function propertyTable(o) {
-    var t = '<table>';
-    var parc = 0;
-    var uu = 0;
-    for (var k in o) {
-        if (k == "PDF_POP_T12")continue;
-        if (k == "PDF_POP_12")continue;
-        if (k == "PDF_PARC_STAT") {
-            if (( o[k] == "1" ) || ( o[k] == "2" )) {
-                parc = 1;
-                continue;
-            } else {
-                if (( o[k] == "5" ) || ( o[k] == "6" )) {
-                    parc = 2;
-                    continue;
-                } else {
-                    parc = 0;
-                    continue;
-                }
-            }
-        }
-        if (k == "PDF_PARC_NOM") {
-            if (parc == 1) {
-                t += '<tr><th>Parc National</th><td>' + o[k] + '</td></tr>';
-                continue;
-            }
-            if (parc == 2) {
-                t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
-                continue;
-            }
-        }
-        if (k == "NOM_COMM") {
-            t += '<tr><th>Nom commune</th><td>' + o[k] + '</td></tr>';
-            continue;
-        }
-        if (k == "INSEE_COM") {
-            t += '<tr><th>Code INSEE</th><td>' + o[k] + '</td></tr>';
-            continue;
-        }
-        if (k == "PDF_POP_M12") {
-            t += '<tr><th>Population 2012</th><td>' + o[k] + '</td></tr>';
-            continue;
-        }
-        if (k == "PDF_UU_STAT") {
-            if (o[k] != "0") {
-                uu = 1;
-            }
-            if (o[k] == "1") {
-                t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville centre</td></tr>';
-                continue;
-            }
-            if (o[k] == "2") {
-                t += '<tr><th>Unité urbaine de plus de 100 000 habitants</th><td>Ville de banlieue</td></tr>';
-                continue;
-            }
-            if (o[k] == "4") {
-                t += '<tr><th>Unité urbaine autour ville centre de plus de 10 000 habitants</th><td>Ville ' +
-                        'de plus de 10 000 habitants</td></tr>';
-                continue;
-            }
-            if (o[k] == "5") {
-                t += '<tr><th>Unité urbaine autour ville centre de plus de 10 000 habitants</th><td>Ville de ' +
-                        'moins de 10 000 habitants</td></tr>';
-                continue;
-            }
-            if (o[k] == "6") {
-                t += '<tr><th>Unité urbaine de moins de 10 000 habitants</th><td>Ville centre</td></tr>';
-                continue;
-            }
-            if (o[k] == "7") {
-                t += '<tr><th>Unité urbaine de moins de 10 000 habitants</th><td>Ville de banlieue</td></tr>'
-                continue;
-            }
-            if (o[k] == "10") {
-                uu=0;
-                t += '<tr><th>Ville isolée</th><td>Ville de plus de 10 000 habitants</td></tr>';
-                continue;
-            }
-            if (o[k] == "11") {
-                uu=0;
-                t += '<tr><th>Ville isolée</th><td>Ville de moins de 10 000 habitants</td></tr>';
-                continue;
-            }
-        }
-        if (k == "PDF_UU_NOM") {
-            if (uu == 1) {
-                t += '<tr><th>Nom unité urbaine</th><td>' + o[k] + '</td></tr>';
-                continue;
-            }
-        }
-        if (k == "PDF_UU_POP12") {
-            if (uu == 1) {
-                t += '<tr><th>Population unité urbaine 2012</th><td>' + o[k] + '</td></tr>';
-                continue;
-            }
-        }
-        if (k == "PDF_UU_CODE") {
-            if (uu == 1) {
-                t += '<tr><th>Code unité urbaine</th><td>' + o[k] + '</td></tr>';
-                continue;
-            }
-        }
-        if (k == "PDF_UU_SURF") {
-            if (uu == 1) {
-                t += '<tr><th>Surface unité urbaine</th><td>' + o[k] + '</td></tr>';
-                continue;
-            }
-        }
+  var nom_commune= 0;
+  var nom_uu=0;
+  var population_commune = 0;
+  var population_uu = 0;
+  var surface_commune = 0;
+  var surface_uu = 0;
+  for (var k in o) {
+    if (k == "PDF_POP_T12")continue;
+    if (k == "PDF_POP_12")continue;
+    if (k == "PDF_PARC_STAT")continue;
+    if (k == "PDF_PARC_NOM")continue;
+    if (k == "PDF_UU_STAT")continue;
+    if (k == "INSEE_COM")continue;
+    if (k == "NOM_COMM") {
+      nom_commune = o[k];continue;
     }
-    t += '</table>';
-    return t;
+    if (k == "PDF_POP_M12") {
+      population_commune = o[k];continue;
+    }
+    if (k == "PDF_UU_NOM") {
+      nom_uu = o[k];continue;
+    }
+    if (k == "PDF_UU_POP12") {
+      population_uu = o[k];continue;
+    }
+    if (k == "PDF_UU_SURF") {
+      surface_uu = o[k];continue;
+    }
+    if (k == "SUPERFICIE") {
+      surface_commune = o[k];continue;
+    }
+  }
+  var accroissement=(surface_uu/surface_commune)*100;
+  var t = '<table>';
+  t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
+  t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
+  t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
+  t += '<tr><th>Accroissement de la surface </th><td>' + accroissement + ' %</td></tr>';
+  t += '</table>';
+  t += 'Actuellement les panneaux scellés au sol de 12 m ne sont autorisés que dans la seule commune ' +
+         'de '+nom_commune+' (en bleu). Si le décret passait, ils le seraient également dans toute ' +
+          'l\'unité urbaine '+nom_uu+' (en rouge).'
+  return t;
 }
 </script>
 
