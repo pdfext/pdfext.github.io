@@ -191,16 +191,16 @@ function propertyTable(o) {
       surface_commune = o[k];continue;
     }
   }
-  var accroissement=(surface_uu/surface_commune)*100;
+  var accroissement = Math.round((surface_uu/surface_commune)*100);
   var t = '<table>';
   t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
   t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
   t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
-  t += '<tr><th>Accroissement de la surface </th><td>' + accroissement + ' %</td></tr>';
+  t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur l\'unité urbaine</th><td>' + accroissement + ' %</td></tr>';
   t += '</table>';
-  t += 'Actuellement les panneaux scellés au sol de 12 m ne sont autorisés que dans la seule commune ' +
+  t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans la seule commune ' +
          'de '+nom_commune+' (en bleu). Si le décret passait, ils le seraient également dans toute ' +
-          'l\'unité urbaine '+nom_uu+' (en rouge).'
+          'l\'unité urbaine de '+nom_uu+' (bleu + rouge).'
   return t;
 }
 </script>
