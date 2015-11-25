@@ -59,7 +59,7 @@ var map = L.mapbox.map('map', 'tomdom.8612c3f2')
      map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 var pdfLayer = L.mapbox.featureLayer()
-    .loadURL('../data/v2_11L.json')
+    .loadURL('../data/v2_9LL.json')
     .on('click', handleClick)
     .on('ready', resetStyles)
     .addTo(map);
@@ -156,13 +156,11 @@ function highlightMatch(that) {
 // name of a state or district
 function propertyTable(o) {
   var nom_commune= 0;
-  var nom_vcs=0;
+  var nom_uu=0;
   var population_commune = 0;
   var population_uu = 0;
   var surface_commune = 0;
   var surface_uu = 0;
-  var surface_vcs = 0;
-
   for (var k in o) {
     if (k == "PDF_POP_T12")continue;
     if (k == "PDF_POP_12")continue;
@@ -170,15 +168,14 @@ function propertyTable(o) {
     if (k == "PDF_PARC_NOM")continue;
     if (k == "PDF_UU_STAT")continue;
     if (k == "INSEE_COM")continue;
-    if (k == "PDF_UU_NOM")continue;
     if (k == "NOM_COMM") {
       nom_commune = o[k];continue;
     }
     if (k == "PDF_POP_M12") {
       population_commune = o[k];continue;
     }
-    if (k == "PDF_UU_VCS") {
-      nom_vcs = o[k];continue;
+    if (k == "PDF_UU_NOM") {
+      nom_uu = o[k];continue;
     }
     if (k == "PDF_UU_POP12") {
       population_uu = o[k];continue;
@@ -186,20 +183,17 @@ function propertyTable(o) {
     if (k == "PDF_UU_SURF") {
       surface_uu = o[k];continue;
     }
-    if (k == "PDF_SURF_VCS") {
-          surface_vcs = o[k];continue;
-    }
     if (k == "SUPERFICIE") {
       surface_commune = o[k];continue;
     }
   }
-  var accroissement = Math.round((surface_uu/surface_vcs)*100);
+  var accroissement = Math.round((surface_uu/surface_commune)*100);
   var t = '<table>';
   //t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
   t += '<tr><th></th><td></td></tr>';
   t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
   t += '<tr><th></th><td></td></tr>';
-  t += '<tr><th>Population unité urbaine '+nom_vcs+' </th><td>' +population_uu + ' habitants</td></tr>';
+  t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
   t += '<tr><th></th><td></td></tr>';
   t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur l\'unité urbaine</th><td>' + accroissement + ' %</td></tr>';
   t += '</table>';
