@@ -13,8 +13,15 @@
 </head>
 <body>
 
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-pip/v0.0.2/leaflet-pip.js'></script>
 
 <style>
+.leaflet-popup { width:240px; }
+.leaflet-popup button {
+  float:right;
+  height:30px;
+  line-height:10px;
+  }
 .legend label,
 .legend span {
   display:block;
@@ -33,6 +40,9 @@
 <small>
 <strong>Effets de l'article 2 du projet de décret 'Macron' sur les banlieues des villes de 10 000 habitants (zones rouges).</strong>
 <kbd>
+    <br>
+    Pas de changements pour les unités urbaines de plus de 100 000 habitants (en grisé).
+    <br>
 <br>
 <b style="color:#1900ff">Bleu</b> : commune où les panneaux scellés au sol sont actuellement autorisés.
 <br>
@@ -42,14 +52,168 @@
 Source: <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a>
 </small>
 </div>
-<div id='map' class='dark'></div>
 
+
+<div id='map'></div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoidG9tZG9tIiwiYSI6ImNpaDg5MTMxZjAwM3J2NGtsNXdiYzU2bWkifQ.izW6xjZoen1t1cESdibcaA';
 var map = L.mapbox.map('map', 'tomdom.8612c3f2')
         .setView([11.2,-60.0], 6);
-  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+     map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+var pdfLayer = L.mapbox.featureLayer()
+    .loadURL('../data/v2_11L.json')
+    .on('click', handleClick)
+    .on('ready', resetStyles)
+    .addTo(map);
+
+var layers = [
+    { name: 'Données comparées unité urbaine/commune', layer: pdfLayer }
+];
+
+// This is the default style of layers when the user isn't interacting
+// with the map
+var quiet = {
+    fillColor: '#222',
+    fillOpacity: 0.2,
+    opacity: 0.4,
+    weight: 1
+};
+
+// The style of a layer that's been filtered to but not the specific
+// shape the user selected
+var medium = {
+    fillColor: '#255',
+    fillOpacity: 0.4,
+    opacity: 1,
+    weight: 1
+};
+
+// The specific shape selected
+var loud = {
+    fillColor: '#2ff',
+    fillOpacity: 0.4,
+    opacity: 0.4,
+    weight: 1
+};
+
+// When the user resets the map by closing the popup, reset styles
+function resetStyles() {
+    for (var i = 0; i < layers.length; i++) {
+        layers[i].layer.setStyle(quiet);
+    }
+}
+
+map.on('popupclose', function() {
+    resetStyles();
+});
+
+function handleClick(e) {
+    var html = '';
+    // look through each layer in order and see if the clicked point,
+    // e.latlng, overlaps with one of the shapes in it.
+    for (var i = 0; i < layers.length; i++) {
+        var match = leafletPip.pointInLayer(
+            // the clicked point
+            e.latlng,
+            // this layer
+            layers[i].layer,
+            // whether to stop at first match
+            true);
+        // if there's overlap, add some content to the popup: the layer name
+        // and a table of attributes
+        if (match.length) {
+            html += '<strong>' + layers[i].name + '</strong>';
+            html += propertyTable(match[0].feature.properties);
+        }
+    }
+    if (html) {
+        map.openPopup(html, e.latlng);
+    }
+}
+
+// To highlight a layer, we make all other layers quiet and then re-run
+// the point in polygon match on that layer
+function highlightMatch(that) {
+    var layer = layers[that.dataset.layer].layer,
+        latlng = L.latLng(that.dataset.latlng.split(','));
+
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].layer == layer) {
+            var match = leafletPip.pointInLayer(latlng, layers[i].layer, true);
+            layers[i].layer.eachLayer(function(shape) {
+                if (match[0] == shape) {
+                    // the one shape that is matched becomes loud and clear
+                    shape.setStyle(loud);
+                } else {
+                    shape.setStyle(medium);
+                }
+            });
+        } else {
+            layers[i].layer.setStyle(quiet);
+        }
+    }
+}
+
+// create a simple table from the properties in a feature, like the
+// name of a state or district
+function propertyTable(o) {
+  var nom_commune= 0;
+  var nom_vcs=0;
+  var population_commune = 0;
+  var population_uu = 0;
+  var surface_commune = 0;
+  var surface_uu = 0;
+  var surface_vcs = 0;
+
+  for (var k in o) {
+    if (k == "PDF_POP_T12")continue;
+    if (k == "PDF_POP_12")continue;
+    if (k == "PDF_PARC_STAT")continue;
+    if (k == "PDF_PARC_NOM")continue;
+    if (k == "PDF_UU_STAT")continue;
+    if (k == "INSEE_COM")continue;
+    if (k == "PDF_UU_NOM")continue;
+    if (k == "NOM_COMM") {
+      nom_commune = o[k];continue;
+    }
+    if (k == "PDF_POP_M12") {
+      population_commune = o[k];continue;
+    }
+    if (k == "PDF_UU_VCS") {
+      nom_vcs = o[k];continue;
+    }
+    if (k == "PDF_UU_POP12") {
+      population_uu = o[k];continue;
+    }
+    if (k == "PDF_UU_SURF") {
+      surface_uu = o[k];continue;
+    }
+    if (k == "PDF_SURF_VCS") {
+          surface_vcs = o[k];continue;
+    }
+    if (k == "SUPERFICIE") {
+      surface_commune = o[k];continue;
+    }
+  }
+  var accroissement = Math.round((surface_uu/surface_vcs)*100);
+  var t = '<table>';
+  //t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
+  t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
+  t += '<tr><th>Population unité urbaine '+nom_vcs+' </th><td>' +population_uu + ' habitants</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
+  t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur l\'unité urbaine</th><td>' + accroissement + ' %</td></tr>';
+  t += '</table>';
+  t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans la (les) seule(s) commune(s) ' +
+         'en bleu. Si le décret passait, ils le seraient également dans toute ' +
+          'l\'unité urbaine bleu et rouge.'
+  return t;
+}
 </script>
+
 </body>
 </html>
 
