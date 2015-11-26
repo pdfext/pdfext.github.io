@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Paysages de France : données sur les communes</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+<!-- Set the display of this container to none so we can
+     add it programmatically to `legendControl` -->
+<div id='legend' style='display:none;'>
+    <small>
+        <strong>En cliquant sur une commune colorisée, on visualise ses données dans une fenêtre pop-up.</strong>
+        <br>
+        <kbd>Code couleur utilisé :</kbd>
+        <br>
+        <b style="color:#0007ff">Contour bleu</b> : commune cœur d'un Parc National.
+        <br>
+        <b style="color:#005cfb">Contour bleu clair</b> : commune aire d'adhésion d'un Parc National.
+        <br>
+        <b style="color:#04a500">Contour vert</b> : commune dans un Parc Naturel Régional.
+        <br>
+        <b style="color:#27fa04">Contour vert clair</b> : commune partiellement dans un Parc Naturel Régional.
+        <br>
+        <b style="color:#322323">Noir</b> : commune centre d'une unité urbaine de plus de 100 000 habitants.
+        <br>
+        <b style="color:#414040">Gris</b> : commune de banlieue d'une unité urbaine de plus de 100 000 habitants.
+        <br>
+        <b style="color:#50007c">Violet foncé</b> : commune de plus de 10 000 habitants faisant partie d'une unité urbaine.
+        <br>
+        <b style="color:#5d267c">Violet</b> : commune de moins de 10 000 habitants faisant partie d'une unité urbaine autour d'une
+        commune centre de plus de 10 000 habitants.
+        <br>
+        <b style="color:#0e00fb">Bleu foncé</b> : ville isolée de plus de 10 000 habitants.
+        <br>
+        <b style="color:#8c86fa">Bleu pâle</b> : ville isolée de moins de 10 000 habitants.
+        <br>
+        <b style="color:#faa5f7">Rose</b> : commune centre d'une unité urbaine de moins de 10 000 habitants.
+        <br>
+        <b style="color:#f6cdfd">Rose pâle</b> : commune de banlieue d'une unité urbaine de moins de 10 000 habitants.
+        <br>
+        </kbd>
+        Source: <a href="http://paysagesdefrance.org">Paysages de France</a>
+    </small>
+</div>
+<div id='map' class='dark'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoibGdlcmZlcm5hbmQiLCJhIjoiY2loMG1vMmZoMDBpY2tya3Jxem9pMGJ6MSJ9.omOSkGkwzbPZTExWPMgGLg';
+var map = L.mapbox.map('map', 'lgerfernand.76f6edb7')
+    .setView([48.250, 2.384], 8);
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+</script>
+</body>
+</html>
+
+
