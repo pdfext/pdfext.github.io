@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Cartes "Paysages de France" sur la réglementation de la publicité extérieure.</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+
+<style>
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+
+<div id='legend' style='display:none;'>
+  <strong>Unités urbaines de plus de 100 000 habitants: en <b style="color:#ff0000">rouge</b>,
+      les effets de l'article R581-31 du Code de l'environnement (décret du 29 Décembre 1979).</strong>
+  <small>
+  <br>
+  <kbd>
+    <br>
+    Dans les unités urbaines de 100 000 habitants et plus, avec cet article de loi, les régles qui s'appliquent
+      normalement aux seules communes de 10 000 habitants et plus s'étendent aussi aux communes de moins
+      de 10 000 habitants: notamment autorisation des panneaux scellés au sol de grand format (12m² et plus).
+    <br>
+    <i>Remarque : les travaux du Grenelle avaient réussi, mais uniquement dans un premier temps, à faire annuler
+        cette dérogation.</i>
+  </kbd>
+  <br> <br>
+  <b style="color:#000000">Noir</b> : communes de 10 000 habitants et plus dans une unité urbaine de 100 000 habitants ou plus.
+  <br>
+  <b style="color:#ff0000">Rouge</b> : communes de moins 10 000 habitants dans une unité urbaine de 100 000 habitants ou plus.
+ <br>
+  <b style="color:#390905">Marron</b> : communes de 10 000 habitants et plus, en dehors d'une unité urbaine de 100 000 habitants.
+  <br>
+  <br>
+  </kbd>
+  Source: <a href="http://paysagesdefrance.org">Paysages de France</a><br>
+  Plus d'explications sur cette carte <a href="http://pdfext.github.io/Explications#explications_Carte3">ici</a>.
+</small>
+</div>
+<div id='map' class='dark'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoicG5vdmVtYmVyIiwiYSI6ImNpZ3dxOTk3YTAwOXF2ZmtyNnM5djdsZTgifQ.klF5WEENWX_LBg9fqg-90A';
+var map = L.mapbox.map('map', 'pnovember.de6bcd36')
+        .setView([11.2,-60.0], 6);
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+</script>
+</body>
+</html>
+
+
+ 
+
+
