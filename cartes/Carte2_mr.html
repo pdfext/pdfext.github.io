@@ -40,16 +40,15 @@
 <small>
 <kbd>
 <br>
-    <br>
-<b style="color:#000000">Noir</b> : pas d'effets pour les unités urbaines de plus de 100 000 habitants
-    où les panneaux scellés au sol de grand format (12 m² et plus) sont déjà autorisés.
-<br>
-<b style="color:#05005d">Bleu</b> : pas d'effet sur les communes de plus de 10 000 habitants (en dehors des unités
-    urbaines de 100 000 habitants et plus) où les panneaux scellés au sol de grand format (12 m² et plus)
-    sont déjà autorisés.
-<br>
 <b style="color:#ff0000">Rouge</b> : communes où les panneaux scellés au sol de grand format (12 m² et plus)
     seraient nouvellement autorisés.
+<br>
+<b style="color:#05005d">Bleu</b> : pas d'effet sur les communes de plus de 10 000 habitants, en dehors des unités
+    urbaines de 100 000 habitants et plus, où les panneaux scellés au sol de grand format (12 m² et plus)
+    sont déjà autorisés.
+<br>
+<b style="color:#000000">Noir</b> : pas d'effets pour les unités urbaines de plus de 100 000 habitants
+    où les panneaux scellés au sol de grand format (12 m² et plus) sont déjà autorisés.
 <br>
 </kbd>
 Source: <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a><br>
@@ -58,9 +57,9 @@ Plus d'<a href="http://pdfext.github.io/Explications#explications_Carte2">explic
 </div>
 <div id='map'></div>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoidG9tZG9tIiwiYSI6ImNpaDg5MTMxZjAwM3J2NGtsNXdiYzU2bWkifQ.izW6xjZoen1t1cESdibcaA';
-var map = L.mapbox.map('map', 'tomdom.8612c3f2')
-  .setView([-16.920,52.921], 6);
+L.mapbox.accessToken = 'pk.eyJ1IjoicGVjYmFybmVzMiIsImEiOiJjaWc2YjB5bnUwaGRrdjBtNmcxOGFiM2NiIn0.6YAbG486IHQpojnS1_PbPA';
+var map = L.mapbox.map('map', 'pecbarnes2.b831f6a3')
+    .setView([48.250, 2.384], 7);
      map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 var pdfLayer = L.mapbox.featureLayer()
