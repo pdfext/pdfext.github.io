@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Paysages de France : données sur les communes</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-pip/v0.0.2/leaflet-pip.js'></script>
+
+<style>
+.leaflet-popup { width:240px; }
+.leaflet-popup button {
+  float:right;
+  height:30px;
+  line-height:10px;
+  }
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:30px;
+  width:33%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+
+<div id='legend' style='display:none;'>
+    &nbsp;&nbsp;<a href="http://pdfext.github.io/cartes/Carte1_metropole.html">Carte 1</a>
+    &nbsp;&nbsp;<a href="http://pdfext.github.io/cartes/Carte2_metropole.html">Carte 2</a>
+    &nbsp;&nbsp;<a href="http://pdfext.github.io/cartes/Carte3_metropole.html">Carte 3</a>
+    &nbsp;&nbsp;<strong>Carte 4</strong>
+    <br>
+        <strong>En cliquant sur une commune colorisée, on visualise ses données dans une fenêtre pop-up.</strong>
+        <br>
+        <kbd>Code couleur utilisé :</kbd>
+        <br>
+        <b style="color:#0007ff">Contour bleu</b> : commune cœur d'un Parc National.
+        <br>
+        <b style="color:#005cfb">Contour bleu clair</b> : commune aire d'adhésion d'un Parc National.
+        <br>
+        <b style="color:#04a500">Contour vert</b> : commune dans un Parc Naturel Régional.
+        <br>
+        <b style="color:#27fa04">Contour vert clair</b> : commune partiellement dans un Parc Naturel Régional.
+        <br>
+        <b style="color:#322323">Noir</b> : commune centre d'une unité urbaine de plus de 100 000 habitants.
+        <br>
+        <b style="color:#414040">Gris</b> : commune de banlieue d'une unité urbaine de plus de 100 000 habitants.
+        <br>
+        <b style="color:#50007c">Violet foncé</b> : commune de plus de 10 000 habitants faisant partie d'une unité urbaine.
+        <br>
+        <b style="color:#5d267c">Violet</b> : commune de moins de 10 000 habitants faisant partie d'une unité urbaine autour d'une
+        commune centre de plus de 10 000 habitants.
+        <br>
+        <b style="color:#0e00fb">Bleu foncé</b> : ville isolée de plus de 10 000 habitants.
+        <br>
+        <b style="color:#8c86fa">Bleu pâle</b> : ville isolée de moins de 10 000 habitants.
+        <br>
+        <b style="color:#faa5f7">Rose</b> : commune centre d'une unité urbaine de moins de 10 000 habitants.
+        <br>
+        <b style="color:#f6cdfd">Rose pâle</b> : commune de banlieue d'une unité urbaine de moins de 10 000 habitants.
+        <br>
+        </kbd>
+        Source: <a href="http://paysagesdefrance.org">Paysages de France</a><br>
+        Plus d'explications sur cette carte <a href="http://pdfext.github.io/Explications#explications_Carte4">ici</a>.
+    </small>
+</div>
+
+<div id='map'></div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoibGdlcmZlcm5hbmQiLCJhIjoiY2loMG1vMmZoMDBpY2tya3Jxem9pMGJ6MSJ9.omOSkGkwzbPZTExWPMgGLg';
+var map = L.mapbox.map('map', 'lgerfernand.76f6edb7')
+    .setView([48.250, 2.384], 8);
+     map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+var pdfLayer = L.mapbox.featureLayer()
+    .loadURL('../data/v2_9l.json')
+    .on('click', handleClick)
+    .on('ready', resetStyles)
+    .addTo(map);
+
+var layers = [
+    { name: 'Données sur la commune', layer: pdfLayer }
+];
+
+// This is the default style of layers when the user isn't interacting
+// with the map
+var quiet = {
+    fillColor: '#222',
+    fillOpacity: 0.2,
+    opacity: 0.4,
+    weight: 1
+};
+
+// The style of a layer that's been filtered to but not the specific
+// shape the user selected
+var medium = {
+    fillColor: '#255',
+    fillOpacity: 0.4,
+    opacity: 1,
+    weight: 1
+};
+
+// The specific shape selected
+var loud = {
+    fillColor: '#2ff',
+    fillOpacity: 0.4,
+    opacity: 0.4,
+    weight: 1
+};
+
+// When the user resets the map by closing the popup, reset styles
+function resetStyles() {
+    for (var i = 0; i < layers.length; i++) {
+        layers[i].layer.setStyle(quiet);
+    }
+}
+
+map.on('popupclose', function() {
+    resetStyles();
+});
+
+function handleClick(e) {
+    var html = '';
+    // look through each layer in order and see if the clicked point,
+    // e.latlng, overlaps with one of the shapes in it.
+    for (var i = 0; i < layers.length; i++) {
+        var match = leafletPip.pointInLayer(
+            // the clicked point
+            e.latlng,
+            // this layer
+            layers[i].layer,
+            // whether to stop at first match
+            true);
+        // if there's overlap, add some content to the popup: the layer name
+        // and a table of attributes
+        if (match.length) {
+            html += '<strong>' + layers[i].name +
+                '<button onclick="highlightMatch(this)" data-layer="' + i +
+                '" data-latlng="' +
+                [e.latlng.lat, e.latlng.lng] +
+                '">highlight</button></strong>';
+            html += propertyTable(match[0].feature.properties);
+        }
+    }
+    if (html) {
+        map.openPopup(html, e.latlng);
+    }
+}
+
+// To highlight a layer, we make all other layers quiet and then re-run
+// the point in polygon match on that layer
+function highlightMatch(that) {
+    var layer = layers[that.dataset.layer].layer,
+        latlng = L.latLng(that.dataset.latlng.split(','));
+
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].layer == layer) {
+            var match = leafletPip.pointInLayer(latlng, layers[i].layer, true);
+            layers[i].layer.eachLayer(function(shape) {
+                if (match[0] == shape) {
+                    // the one shape that is matched becomes loud and clear
+                    shape.setStyle(loud);
+                } else {
+                    shape.setStyle(medium);
+                }
+            });
+        } else {
+            layers[i].layer.setStyle(quiet);
+        }
+    }
+}
+
+// create a simple table from the properties in a feature, like the
+// name of a state or district
+function propertyTable(o) {
+    var t = '<table>';
+    var parc = 0;
+    var uu = 0;
+    for (var k in o) {
+        if (k == "PDF_POP_T12")continue;
+        if (k == "PDF_POP_12")continue;
+        if (k == "PDF_PARC_STAT") {
+            if (( o[k] == "1" ) || ( o[k] == "2" )) {
+                parc = 1;
+                continue;
+            } else {
+                if (( o[k] == "5" ) || ( o[k] == "6" )) {
+                    parc = 2;
+                    continue;
+                } else {
+                    parc = 0;
+                    continue;
+                }
+            }
+        }
+        if (k == "PDF_PARC_NOM") {
+            if (parc == 1) {
+                t += '<tr><th>Parc National</th><td>' + o[k] + '</td></tr>';
+                continue;
+            }
+            if (parc == 2) {
+                t += '<tr><th>Parc Naturel Régional</th><td>' + o[k] + '</td></tr>';
+                continue;
+            }
+        }
+        if (k == "NOM_COMM") {
+            t += '<tr><th>Nom commune</th><td>' + o[k] + '</td></tr>';
+            continue;
+        }
+        if (k == "INSEE_COM") {
+            t += '<tr><th>Code INSEE</th><td>' + o[k] + '</td></tr>';
+            continue;
+        }
+        if (k == "PDF_POP_M12") {
+            t += '<tr><th>Population 2012</th><td>' + o[k] + '</td></tr>';
+            continue;
+        }
+        if (k == "PDF_UU_STAT") {
+            if (o[k] != "0") {
+                uu = 1;
+            }
+            if (o[k] == "1") {
+                t += '<tr><th>Unité urbaine de 100 000 habitants et plus</th><td>Ville centre</td></tr>';
+                continue;
+            }
+            if (o[k] == "2") {
+                t += '<tr><th>Unité urbaine de 100 000 habitants et plus</th><td>Ville de banlieue</td></tr>';
+                continue;
+            }
+            if (o[k] == "4") {
+                t += '<tr><th>Unité urbaine autour d'une commune de 10 000 habitants et plus</th><td>Ville ' +
+                        'de 10 000 habitants et plus</td></tr>';
+                continue;
+            }
+            if (o[k] == "5") {
+                t += '<tr><th>Unité urbaine autour d'une commune de 10 000 habitants et plus</th><td>Ville de ' +
+                        'moins de 10 000 habitants</td></tr>';
+                continue;
+            }
+            if (o[k] == "6") {
+                t += '<tr><th>Unité urbaine de moins de 10 000 habitants</th><td>Ville centre</td></tr>';
+                continue;
+            }
+            if (o[k] == "7") {
+                t += '<tr><th>Unité urbaine de moins de 10 000 habitants</th><td>Ville de banlieue</td></tr>'
+                continue;
+            }
+            if (o[k] == "10") {
+                uu=0;
+                t += '<tr><th>Ville isolée</th><td>Ville de 10 000 habitants et plus</td></tr>';
+                continue;
+            }
+            if (o[k] == "11") {
+                uu=0;
+                t += '<tr><th>Ville isolée</th><td>Ville de moins de 10 000 habitants</td></tr>';
+                continue;
+            }
+        }
+        if (k == "PDF_UU_NOM") {
+            if (uu == 1) {
+                t += '<tr><th>Nom unité urbaine</th><td>' + o[k] + '</td></tr>';
+                continue;
+            }
+        }
+        if (k == "PDF_UU_POP12") {
+            if (uu == 1) {
+                t += '<tr><th>Population unité urbaine 2012</th><td>' + o[k] + '</td></tr>';
+                continue;
+            }
+        }
+        if (k == "PDF_UU_CODE") {
+            if (uu == 1) {
+                t += '<tr><th>Code unité urbaine</th><td>' + o[k] + '</td></tr>';
+                continue;
+            }
+        }
+        if (k == "PDF_UU_SURF") {
+            if (uu == 1) {
+                t += '<tr><th>Surface unité urbaine</th><td>' + o[k] + '</td></tr>';
+                continue;
+            }
+        }
+    }
+    t += '</table>';
+    return t;
+}
+</script>
+
+</body>
+</html>
