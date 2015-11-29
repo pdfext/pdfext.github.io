@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Effet de l'article 2 du projet de décret 'Macron': extension de la publicité. </title>
+<title>Cartes "Paysages de France" sur la réglementation de la publicité extérieure.</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
@@ -34,31 +34,42 @@
   }
 </style>
 
-<!-- Set the display of this container to none so we can
-     add it programmatically to `legendControl` -->
 <div id='legend' style='display:none;'>
-<strong>Effets de l'article 2 du projet de décret 'Macron' sur les banlieues des villes de 10 000 habitants (zones rouges).</strong>
+    <div style="text-align:center;">
+        &nbsp;&nbsp;<a href="http://pdfext.github.io/cartes/Carte1_metropole.html">Carte 1</a>
+        &nbsp;&nbsp;<strong>Carte 2</strong>
+        &nbsp;&nbsp;<a href="http://pdfext.github.io/cartes/Carte3_metropole.html">Carte 3</a>
+        &nbsp;&nbsp;<a href="http://pdfext.github.io/cartes/Carte4_metropole.html">Carte 4</a>
+    </div>
+    <br>
+<strong>Effets qu'aurait l'article 2 du projet de décret 'Macron' sur les banlieues des villes de
+    10 000 habitants et plus <b style="color:#ff0000">(zones rouges)</b>.</strong>
 <small>
 <kbd>
-    <br>
-    <br>
-    Pas d'effets pour les unités urbaines de plus de 100 000 habitants (en grisé).
-    <br>
+<br><br>
+<b style="color:#ff0000">Rouge</b> : communes où les panneaux scellés au sol de grand format (12 m² et plus)
+    seraient nouvellement autorisés.
 <br>
-<b style="color:#1900ff">Bleu</b> : commune où les panneaux scellés au sol sont actuellement autorisés.
+<b style="color:#434363">Bleu</b> : communes de plus de 10 000 habitants, en dehors des unités
+    urbaines de 100 000 habitants et plus, où les panneaux scellés au sol de grand format (12 m² et plus)
+    sont déjà autorisés. Voir
+    <a href="http://pdfext.github.io/cartes/Carte1_metropole.html">ici</a> pour comprendre
+    la réglementation actuelle de ces communes.
 <br>
-<b style="color:#ff0000">Rouge</b> : commune où les panneaux scellés au sol seraient nouvellement autorisés.
+<b style="color:#484747">Gris</b> : unités urbaines de plus de 100 000 habitants
+    où les panneaux scellés au sol de grand format (12 m² et plus) sont déjà autorisés. Voir
+    <a href="http://pdfext.github.io/cartes/Carte1_metropole.html">ici</a> pour comprendre
+    la réglementation actuelle de ces unités urbaines.<br>
 <br>
 </kbd>
-Source: <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a>
+Source : <a href="http://paysagesdefrance.org/spip.php?article891">Paysages de France</a><br>
+Plus d'<a href="http://pdfext.github.io/Explications#explications_Carte2">explications</a> sur cette carte.
 </small>
 </div>
-
-
 <div id='map'></div>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1IjoidG9tZG9tIiwiYSI6ImNpaDg5MTMxZjAwM3J2NGtsNXdiYzU2bWkifQ.izW6xjZoen1t1cESdibcaA';
-var map = L.mapbox.map('map', 'tomdom.8612c3f2')
+L.mapbox.accessToken = 'pk.eyJ1IjoicGVjYmFybmVzMiIsImEiOiJjaWc2YjB5bnUwaGRrdjBtNmcxOGFiM2NiIn0.6YAbG486IHQpojnS1_PbPA';
+var map = L.mapbox.map('map', 'pecbarnes2.b831f6a3')
     .setView([48.250, 2.384], 7);
      map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
@@ -213,7 +224,6 @@ function propertyTable(o) {
   return t;
 }
 </script>
-
 </body>
 </html>
 
