@@ -75,7 +75,7 @@ Source : <a href="http://paysagesdefrance.org/">Paysages de France</a><br>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoicGVjYmFybmVzMiIsImEiOiJjaWc2YjB5bnUwaGRrdjBtNmcxOGFiM2NiIn0.6YAbG486IHQpojnS1_PbPA';
 var map = L.mapbox.map('map', 'pecbarnes2.b831f6a3')
-    .setView([48.250, 2.384], 7);
+        .setView([-16.920,52.921], 6);
      map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
 var pdfLayer = L.mapbox.featureLayer()
@@ -85,7 +85,7 @@ var pdfLayer = L.mapbox.featureLayer()
     .addTo(map);
 
 var layers = [
-    { name: 'Données comparées unité urbaine/commune', layer: pdfLayer }
+    { name: 'Effets du projet de décret \'Macron\' sur cette unité urbaine', layer: pdfLayer }
 ];
 
 // This is the default style of layers when the user isn't interacting
@@ -183,7 +183,8 @@ function propertyTable(o) {
   var surface_commune = 0;
   var surface_uu = 0;
   var surface_vcs = 0;
-
+  var nb_total = 0;
+  var nb_vcs = 0;
   for (var k in o) {
     if (k == "PDF_POP_T12")continue;
     if (k == "PDF_POP_12")continue;
@@ -191,6 +192,12 @@ function propertyTable(o) {
     if (k == "PDF_PARC_NOM")continue;
     if (k == "PDF_UU_STAT")continue;
     if (k == "INSEE_COM")continue;
+    if (k == "PDF_UU_NB") {
+        nb_total = o[k];continue;
+    }
+    if (k == "PDF_VCS_NB") {
+        nb_vcs = o[k];continue;
+    }
     if (k == "PDF_UU_NOM") {
         nom_uu = o[k];continue;
     };
@@ -210,25 +217,45 @@ function propertyTable(o) {
       surface_uu = o[k];continue;
     }
     if (k == "PDF_SURF_VCS") {
-          surface_vcs = o[k];continue;
+      surface_vcs = o[k];continue;
     }
     if (k == "SUPERFICIE") {
       surface_commune = o[k];continue;
     }
   }
+  var nb_autres = nb_total-nb_vcs;;
   var accroissement = Math.round((surface_uu/surface_vcs)*100);
   var t = '<table>';
   //t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
   t += '<tr><th></th><td></td></tr>';
-  t += '<tr><th>Population commune '+nom_commune+' </th><td>' +population_commune + ' habitants</td></tr>';
+  t += '<tr><th>Population commune '+nom_commune+'</th><td>'+population_commune+' habitants</td></tr>';
   t += '<tr><th></th><td></td></tr>';
-  t += '<tr><th>Population unité urbaine '+nom_uu+' </th><td>' +population_uu + ' habitants</td></tr>';
+  t += '<tr><th>Population unité urbaine '+nom_uu+'</th><td>'+population_uu+' habitants</td></tr>';
   t += '<tr><th></th><td></td></tr>';
-  t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur l\'unité urbaine</th><td>' + accroissement + ' %</td></tr>';
+  t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur ' +
+          'l\'unité urbaine</th><td>'+accroissement+' %</td></tr>';
   t += '</table>';
-  t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans la (les) seule(s) commune(s) ' +
-         'en bleuté ('+nom_vcs+'). Si le décret passait, ils le seraient également dans toute ' +
-          'l\'unité urbaine (en bleuté et rouge).'
+    if (nb_vcs==1) {
+        if (nb_autres==1) {
+            t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans la seule commune ' +
+                    'en bleuté ('+nom_vcs+'). Si le décret passait, ils le seraient également dans l\'autre ' +
+                    'commune de l\'unité urbaine (en rouge).'
+        } else {
+            t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans la seule commune ' +
+                    'en bleuté ('+nom_vcs+'). Si le décret passait, ils le seraient également dans les '+nb_autres+
+                    ' autres communes de l\'unité urbaine (en rouge).'
+        }
+    } else {
+        if (nb_autres==1) {
+            t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans les '+nb_vcs+
+                    ' commune(s) en bleuté ('+nom_vcs+'). Si le décret passait, ils le seraient également ' +
+                    'dans l\'autre commune de l\'unité urbaine (en rouge).'
+        } else {
+            t += 'Actuellement les panneaux scellés au sol de 12 m² ne sont autorisés que dans les '+nb_vcs+
+                    ' commune(s) en bleuté ('+nom_vcs+'). Si le décret passait, ils le seraient également ' +
+                    'dans les '+nb_autres+' autres communes de l\'unité urbaine (en rouge).'
+        }
+    }
   return t;
 }
 </script>
