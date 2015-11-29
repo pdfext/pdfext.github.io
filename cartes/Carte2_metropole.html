@@ -226,13 +226,14 @@ function propertyTable(o) {
   var nb_autres = nb_total-nb_vcs;;
   var accroissement = Math.round((surface_uu/surface_vcs)*100);
   var t = '<table>';
-  t += '<tr><td></td></tr>';
-  t += '<tr>Population commune '+nom_commune+'<td>'+population_commune+' habitants</td></tr>';
-  t += '<tr><td></td></tr>';
-  t += '<tr>Population unité urbaine '+nom_uu+'<td>'+population_uu+' habitants</td></tr>';
-  t += '<tr><td></td></tr>';
-  t += '<tr>Accroissement de la surface autorisée pour les panneaux scellés au sol sur ' +
-          'l\'unité urbaine<td>'+accroissement+' %</td></tr>';
+  //t += '<tr><th>Nom commune</th><td>' + nom_commune + '</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
+  t += '<tr><th>Population commune '+nom_commune+'</th><td>'+population_commune+' habitants</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
+  t += '<tr><th>Population unité urbaine '+nom_uu+'</th><td>'+population_uu+' habitants</td></tr>';
+  t += '<tr><th></th><td></td></tr>';
+  t += '<tr><th>Accroissement de la surface autorisée pour les panneaux scellés au sol sur ' +
+          'l\'unité urbaine</th><td>'+accroissement+' %</td></tr>';
   t += '</table>';
     if (nb_vcs==1) {
         if (nb_autres==1) {
