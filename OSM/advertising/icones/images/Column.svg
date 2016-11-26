@@ -36,8 +36,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="86.831039"
-     inkscape:cy="387.96373"
+     inkscape:cx="283.01357"
+     inkscape:cy="559.3923"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -58,7 +58,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -71,66 +71,66 @@
        id="rect4221"
        width="265"
        height="183.86093"
-       x="235"
-       y="396.60535" />
+       x="229.28571"
+       y="288.03391" />
     <rect
        style="fill:#fa00e3;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7"
        width="265"
        height="183.58771"
-       x="235"
-       y="577.80774" />
+       x="229.28571"
+       y="469.23633" />
     <rect
        style="fill:#1900fa;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7-5"
        width="265"
        height="191.45366"
-       x="235"
-       y="758.60028" />
+       x="229.28571"
+       y="650.02887" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:158.63577271px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="233.90883"
-       y="655.63464"
+       x="228.73877"
+       y="528.2171"
        id="text4305"
        sodipodi:linespacing="125%"
        transform="matrix(1.1735588,-4.5495719e-4,-0.0027711,0.85211006,0,0)"><tspan
          sodipodi:role="line"
          id="tspan3778"
-         x="233.90883"
-         y="655.63464">O</tspan><tspan
+         x="228.73877"
+         y="528.2171">O</tspan><tspan
          sodipodi:role="line"
          id="tspan3780"
-         x="233.90883"
-         y="853.92938">S</tspan><tspan
+         x="228.73877"
+         y="726.51178">S</tspan><tspan
          sodipodi:role="line"
          id="tspan3782"
-         x="233.90883"
-         y="1052.2241">M</tspan></text>
+         x="228.73877"
+         y="924.80652">M</tspan></text>
     <rect
        style="fill:#000000;fill-opacity:0;stroke:#999999;stroke-width:2.19756246;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5824"
        width="268.18829"
        height="676.75977"
-       x="234.47726"
-       y="373.98233" />
+       x="228.76297"
+       y="265.41089" />
     <rect
        style="fill:#003c00;fill-opacity:1;stroke:#999999;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7276"
        width="265"
        height="102.35989"
-       x="235"
-       y="948.32507" />
+       x="229.28571"
+       y="839.75366" />
     <rect
        style="fill:#003c00;fill-opacity:1;stroke:#999999;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7276-0"
        width="265"
        height="36.645603"
-       x="235"
-       y="371.18222" />
+       x="229.28571"
+       y="262.61078" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 374.28571,310.93363 200,372.3622 l 340,0 z"
+       d="m 368.57143,202.36221 -174.28571,61.42857 340,0 z"
        id="path4249"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
@@ -139,13 +139,13 @@
        id="rect7276-0-9"
        width="413.57141"
        height="49.502739"
-       x="160.71428"
-       y="322.61078" />
+       x="154.99998"
+       y="214.03934" />
     <ellipse
        style="fill:#003c00;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4266"
-       cx="370"
-       cy="280.21936"
+       cx="364.28574"
+       cy="171.64792"
        rx="108.57141"
        ry="80.714272" />
   </g>

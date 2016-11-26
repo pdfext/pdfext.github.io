@@ -35,8 +35,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="198.25961"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="196.2393"
      inkscape:cy="387.96373"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -69,57 +69,57 @@
     <rect
        style="fill:#fa0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221"
-       width="201.23593"
-       height="192.43236"
-       x="266.92068"
-       y="392.31964" />
+       width="230.20288"
+       height="249.81961"
+       x="246.9621"
+       y="108.27291" />
     <rect
        style="fill:#fa00e3;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7"
-       width="202.66451"
-       height="172.15913"
-       x="266.92068"
-       y="576.37915" />
+       width="229.91719"
+       height="228.92287"
+       x="248.98241"
+       y="314.63416" />
     <rect
        style="fill:#1900fa;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7-5"
-       width="205.52165"
-       height="190.02509"
-       x="266.92068"
-       y="730.02887" />
+       width="235.40672"
+       height="252.67953"
+       x="244.94179"
+       y="512.88385" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:150.40843201px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="230.00459"
-       y="684.24023"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:191.11763px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="212.08949"
+       y="325.47116"
        id="text4305"
        sodipodi:linespacing="125%"
-       transform="matrix(1.2377524,-4.3136172e-4,-0.00292268,0.80791704,0,0)"><tspan
+       transform="matrix(1.1827779,-4.5141104e-4,-0.00279287,0.84546833,0,0)"><tspan
          sodipodi:role="line"
          id="tspan3778"
-         x="230.00459"
-         y="684.24023">O</tspan><tspan
+         x="212.08949"
+         y="325.47116">O</tspan><tspan
          sodipodi:role="line"
          id="tspan3780"
-         x="230.00459"
-         y="872.25079">S</tspan><tspan
+         x="212.08949"
+         y="564.36823">S</tspan><tspan
          sodipodi:role="line"
          id="tspan3782"
-         x="230.00459"
-         y="1060.2614">M</tspan></text>
+         x="212.08949"
+         y="803.26526">M</tspan></text>
     <rect
-       style="fill:#000000;fill-opacity:0;stroke:#999999;stroke-width:26.20699692;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:0;stroke:#999999;stroke-width:18.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5824"
-       width="195.43585"
-       height="644.00732"
-       x="277.99634"
-       y="397.50143" />
+       width="237.30244"
+       height="856.34729"
+       x="246.26825"
+       y="109.10232" />
     <rect
-       style="fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:24.05465317;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:36.64437485;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7276"
-       width="180.44534"
-       height="96.15963"
-       x="286.9202"
-       y="923.56805" />
+       width="213.0215"
+       height="189.0303"
+       x="260.14337"
+       y="754.51862" />
   </g>
 </svg>

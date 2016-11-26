@@ -68,9 +68,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="434.64134"
-     inkscape:cy="181.3934"
+     inkscape:zoom="0.42263072"
+     inkscape:cx="389.91888"
+     inkscape:cy="525.27932"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -102,72 +102,72 @@
     <rect
        style="fill:#fa0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221"
-       width="149.99998"
-       height="38.841179"
-       x="260"
-       y="863.51184" />
+       width="561.00653"
+       height="118.61793"
+       x="88.403992"
+       y="237.90347" />
     <rect
        style="fill:#fa00e3;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7"
-       width="149.99998"
-       height="33.770779"
-       x="260"
-       y="900.12158" />
+       width="561.00653"
+       height="103.13332"
+       x="88.403992"
+       y="349.70673" />
     <rect
        style="fill:#1900fa;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7-5"
-       width="149.99998"
-       height="24.033587"
-       x="260"
-       y="934.49786" />
+       width="561.00653"
+       height="73.39669"
+       x="88.403992"
+       y="454.6893" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.38514328px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="298.75867"
-       y="838.52722"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:197.31933594px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="128.13013"
+       y="428.04303"
        id="text4305"
        sodipodi:linespacing="125%"
-       transform="scale(0.90613932,1.1035831)"><tspan
+       transform="scale(1.002777,0.99723069)"><tspan
          sodipodi:role="line"
          id="tspan4951"
-         x="298.75867"
-         y="838.52722">OSM</tspan><tspan
+         x="128.13013"
+         y="428.04303">OSM</tspan><tspan
          sodipodi:role="line"
          id="tspan4953"
-         x="298.75867"
-         y="907.62335" /></text>
+         x="128.13013"
+         y="674.6922" /></text>
     <rect
-       style="fill:#7c7c7c;fill-opacity:1;stroke:#7e7e7e;stroke-width:4.41393089;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#7e7e7e;stroke-width:14.91739082;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7422-8"
-       width="2.2726471"
-       height="91.404335"
-       x="337.20697"
-       y="961.53723" />
+       width="8.4997997"
+       height="279.14169"
+       x="377.16147"
+       y="537.26532" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#fffef3;stroke-width:1.78231788;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
-       d="m 330.20305,944.38251 c 68.67228,0 68.67228,0 68.67228,0 l 0,0 0,0"
+       style="fill:none;fill-rule:evenodd;stroke:#fffef3;stroke-width:6.02354956;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 350.9665,484.87619 c 256.83736,0 256.83736,0 256.83736,0 l 0,0 0,0"
        id="path5203"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 580,822.3622 Z"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.39366901px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 697.68583,778.87649 Z"
        id="path6523"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.83733368px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="236.54903"
-       y="1089.7667"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.90371704px;line-height:125%;font-family:'DejaVu Serif';-inkscape-font-specification:'DejaVu Serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff6d5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="102.83663"
+       y="638.375"
        id="text4305-9"
        sodipodi:linespacing="125%"
-       transform="scale(1.1467215,0.87205131)"><tspan
+       transform="scale(1.2690167,0.78801169)"><tspan
          sodipodi:role="line"
          id="tspan7348"
-         x="236.54903"
-         y="1089.7667">3 km</tspan><tspan
+         x="102.83663"
+         y="638.375">3 km</tspan><tspan
          sodipodi:role="line"
          id="tspan7350"
-         x="236.54903"
-         y="1110.8134"></tspan></text>
+         x="102.83663"
+         y="709.50464" /></text>
   </g>
 </svg>
