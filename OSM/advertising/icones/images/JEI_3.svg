@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="246.20181"
+     inkscape:cx="71.966659"
      inkscape:cy="600.8122"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -57,14 +57,16 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g9110">
+       id="g9110"
+       style="fill:#000000;fill-opacity:1;stroke:#2c6823;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.99722266,0,0,1.0000373,0.3772123,-0.00976138)">
       <rect
          y="77.790833"
          x="124.963"
          height="366.91931"
          width="501.42053"
          id="rect7422-8-4"
-         style="fill:#333131;fill-opacity:1;stroke:#2c6823;stroke-width:10.51394463;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:#000000;fill-opacity:1;stroke:#2c6823;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <rect
        style="fill:#76fe89;fill-opacity:1;stroke:#2c6823;stroke-width:24.91833305;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -74,38 +76,46 @@
        x="369.20731"
        y="461.82748" />
     <rect
-       style="fill:#2c6823;fill-opacity:1;stroke:#2c6823;stroke-width:18.51771927;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#2c6823;fill-opacity:1;stroke:#2c6823;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7422-8-4-2"
-       width="515.66925"
-       height="27.802177"
-       x="119.96519"
-       y="36.715481" />
-    <flowRoot
+       width="535"
+       height="54.066139"
+       x="105.00001"
+       y="36.715485" />
+    <text
        xml:space="preserve"
-       id="flowRoot9113"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.99997234px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff915;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(7.14379,0,0,4.0476265,-1003.6911,-357.30418)"><flowRegion
-         id="flowRegion9115"><rect
-           id="rect9117"
-           width="440"
-           height="80"
-           x="160"
-           y="112.36221"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.99997234px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#fff915;fill-opacity:1" /></flowRegion><flowPara
-         id="flowPara9199">AUJOURD'HUI</flowPara><flowPara
-         id="flowPara9201">   8H / 13H</flowPara><flowPara
-         id="flowPara9203">MARCHÉ DE </flowPara><flowPara
-         id="flowPara9205"> PLEIN VENT</flowPara></flowRoot>    <flowRoot
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:50px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L, Medium';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#fff900;fill-opacity:1;stroke:#686423;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="123.95176"
+       y="204.64833"
+       id="text16055"
+       sodipodi:linespacing="125%"
+       transform="scale(1.2027765,0.83140964)"><tspan
+         sodipodi:role="line"
+         id="tspan16059"
+         x="123.95176"
+         y="204.64833">AUJOURD'HUI</tspan><tspan
+         sodipodi:role="line"
+         id="tspan16061"
+         x="123.95176"
+         y="267.14835">     8H / 13H</tspan><tspan
+         sodipodi:role="line"
+         id="tspan16063"
+         x="123.95176"
+         y="329.64835"> MARCHÉ DE </tspan><tspan
+         sodipodi:role="line"
+         id="tspan16065"
+         x="123.95176"
+         y="392.14832">   PLEIN VENT</tspan></text>
+    <text
        xml:space="preserve"
-       id="flowRoot9181"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(4.3926216,0,0,3.9226129,-491.01421,-101.50575)"><flowRegion
-         id="flowRegion9183"><rect
-           id="rect9185"
-           width="480"
-           height="40"
-           x="140"
-           y="32.362206"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-         id="flowPara9189">Commune de Bergerac</flowPara></flowRoot>  </g>
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:43.75px;line-height:125%;font-family:'Century Schoolbook L';-inkscape-font-specification:'Century Schoolbook L, Medium';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="153.5636"
+       y="77.011963"
+       id="text16075"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan16079"
+         x="153.5636"
+         y="77.011963">Commune de bergerac</tspan></text>
+  </g>
 </svg>
