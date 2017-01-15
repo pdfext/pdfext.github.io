@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="Board_free_3.svg">
+   sodipodi:docname="Board_free3_3.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="788.07469"
-     inkscape:cy="574.56901"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="240.85158"
+     inkscape:cy="491.73153"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -64,40 +64,26 @@
        x="130.75348"
        y="280.17026" />
     <rect
-       style="fill:#fa0000;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4221"
-       width="543.46149"
-       height="114.3462"
-       x="96.993866"
-       y="255.08136" />
-    <rect
-       style="fill:#fa00e3;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4221-7"
-       width="543.46149"
-       height="126.18372"
-       x="96.993866"
-       y="336.09384" />
-    <rect
-       style="fill:#1900fa;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#fffe73;fill-opacity:1;stroke:#ff0000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4221-7-5"
-       width="543.46149"
-       height="91.570312"
-       x="96.993866"
-       y="443.24338" />
+       width="566.664"
+       height="314.814"
+       x="86.892349"
+       y="239.54822" />
     <rect
-       style="fill:#7c7c7c;fill-opacity:1;stroke:#2c6823;stroke-width:14.41547489;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#7c7c7c;fill-opacity:1;stroke:#2c6823;stroke-width:14.13468552;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7422-8"
-       width="8.2339754"
-       height="269.08911"
-       x="212.02692"
-       y="543.66241" />
+       width="8.5147648"
+       height="250.17702"
+       x="211.88652"
+       y="564.73523" />
     <rect
-       style="fill:#2c6823;fill-opacity:1;stroke:#2c6823;stroke-width:14.41547489;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#2c6823;fill-opacity:1;stroke:#2c6823;stroke-width:14.13468456;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7422-8-0"
-       width="8.2339754"
-       height="269.08911"
-       x="531.88763"
-       y="541.28638" />
+       width="8.5147657"
+       height="250.177"
+       x="531.74725"
+       y="564.37946" />
     <rect
        style="fill:#7c7c7c;fill-opacity:1;stroke:#2c6823;stroke-width:38.41460037;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect7422-8-4-2"
