@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Build a map with Mapbox GL JS at SOTM2018</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body { margin: 0; padding: 0; }
+      #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id='map'></div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGRhZXVzbGciLCJhIjoiY2prN3pyOGxkMGFydzNydGlhbW1mYnhmOSJ9.-L0F9vkmpiPIqVBQMusTRA'; // replace this with your access token
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/pdaeuslg/cjk80abnl10dl2rlh5ljf2vmb', // replace this with your style URL
+      hash: true
+    });
+    // code from the next step will go here
+    </script>
+  </body>
+</html>
+
